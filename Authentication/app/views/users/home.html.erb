@@ -1,0 +1,22 @@
+<h1>Hello, <%= @name %>!</h1>
+
+<% if super_user_signed_in? %>
+
+  <a href="/super_users/sign_out" data-method="delete">
+    Log out
+  </a>
+  <br>
+
+  <a href="/profile">My profile</a><br>
+
+  <% if current_user && current_user.role == "admin" %>
+    <a href="/users">All profiles</a>
+  <% end %>
+
+<% else %>
+
+  <a href="/super_users/sign_up">Sign up</a><br>
+  <a href="/super_users/sign_in">Log in</a><br>
+
+<% end %>
+

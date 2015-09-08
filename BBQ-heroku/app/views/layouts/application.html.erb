@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barbecues</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag 'application', defer: true %>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body data-hook="controller-<%= controller_name %> action-<%= action_name %>">
+	<div class='header'>
+	<%= render './partials/header' %>
+	</div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

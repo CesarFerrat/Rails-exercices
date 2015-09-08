@@ -1,0 +1,49 @@
+<div class="page-header">
+	<h1>
+		New Entry for 
+		<%= @project.name %>
+
+	</h1>
+</div>
+	 	<% if flash[:alert] %>
+			<div class="alert alert-danger" role="alert">
+	  	<%= flash[:alert] %> 
+	 		</div>
+		<% end %> 
+
+	<% if @entry.errors.any? %>
+	<ul>
+		<% @entry.errors.full_messages.each do |error| %>
+		<li> <%= error%></li>
+		<% end%>
+	</ul>
+	<%end%>
+<div class="form-group has-validation">
+	
+	<%= form_for([@project, @entry]) do |f| %>
+		<%= f.label :hours %> 
+		<br>
+		<%= f.text_field :hours %>
+		
+		<br>
+		<%= f.label :minutes %> 
+		<br>
+		<%= f.text_field :minutes %>
+		
+		<br>
+		<%= f.label :date %> 
+		<br>
+		<%= f.date_field :date %>
+		
+		<br>
+		
+		<%= f.label :comment %> 
+		<br>
+		<%= f.text_field :comment %>
+		
+		<br>
+		<br>
+
+		<button class= "btn btn-default btn-lg"type="submit">Create New Entry</button>
+	<% end%>
+	</div>
